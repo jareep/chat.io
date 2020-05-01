@@ -38,4 +38,15 @@ var init = function () {
 	}
 }
 
+/*
+This belongs in config.json should twitter auth need to be added for development
+
+	"twitter": {
+		"consumerKey": "<ConsumerKey>",
+		"consumerSecret": "<ConsumerSecret>",
+		"callbackURL": "/auth/twitter/callback",
+		"profileFields": ["id", "displayName", "photos"]
+	},
+ */
+
 module.exports = init();
