@@ -6,7 +6,7 @@ var passport 	= require('passport');
 
 var LocalStrategy 		= require('passport-local').Strategy;
 var FacebookStrategy  	= require('passport-facebook').Strategy;
-var TwitterStrategy  	= require('passport-twitter').Strategy;
+//var TwitterStrategy  	= require('passport-twitter').Strategy;
 
 var User = require('../models/user');
 
@@ -61,7 +61,7 @@ var init = function(){
 
 	// Plug-in Facebook & Twitter Strategies
 	passport.use(new FacebookStrategy(config.facebook, verifySocialAccount));
-	passport.use(new TwitterStrategy(config.twitter, verifySocialAccount));
+	//passport.use(new TwitterStrategy(config.twitter, verifySocialAccount));
 
 	return passport;
 }

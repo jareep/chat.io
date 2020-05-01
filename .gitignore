@@ -1,5 +1,6 @@
 # Node Dependencies
 node_modules
+config.json
 
 # Logs
 debug.log
