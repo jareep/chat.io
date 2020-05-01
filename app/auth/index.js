@@ -2,7 +2,7 @@
 
 var config 		= require('../config');
 var passport 	= require('passport');
-var logger 		= require('../logger');
+//var logger 		= require('../logger');
 
 var LocalStrategy 		= require('passport-local').Strategy;
 var FacebookStrategy  	= require('passport-facebook').Strategy;

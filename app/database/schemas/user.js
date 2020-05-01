@@ -1,7 +1,7 @@
 'use strict';
 
 var Mongoose 	= require('mongoose');
-var bcrypt      = require('bcrypt-nodejs');
+var bcrypt      = require('bcryptjs');
 
 const SALT_WORK_FACTOR = 10;
 const DEFAULT_USER_PICTURE = "/img/user.jpg";
@@ -40,23 +40,25 @@ UserSchema.pre('save', function(next) {
     if (!user.isModified('password')) return next();
 
     // generate a salt
-    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
-        if (err) return next(err);
-
-        // hash the password using our new salt
-        bcrypt.hash(user.password, salt, null, function(err, hash) {
-            if (err) return next(err);
-
-            // override the cleartext password with the hashed one
-            user.password = hash;
-            next();
-        });
-    });
+    bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
+        if (err) {
+            return next(err);
+        } else {
+            bcrypt.hash(user.password, salt, function(err, hash) {
+                if (err) {
+                    return next(err);
+                } else {
+                    user.password = hash;
+                    next();
+                }
+            })
+        }
+    })
 });
 
 /**
  * Create an Instance method to validate user's password
- * This method will be used to compare the given password with the passwoed stored in the database
+ * This method will be used to compare the given password with the password stored in the database
  * 
  */
 UserSchema.methods.validatePassword = function(password, callback) {

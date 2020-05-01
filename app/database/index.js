@@ -2,7 +2,7 @@
 
 var config 		= require('../config');
 var Mongoose 	= require('mongoose');
-var logger 		= require('../logger');
+//var logger 		= require('../logger');
 
 // Connect to the database
 // construct the database URI and encode username and password.
@@ -12,7 +12,7 @@ var dbURI = "mongodb://" +
 			config.db.host + ":" + 
 			config.db.port + "/" + 
 			config.db.name;
-Mongoose.connect(dbURI, { useNewUrlParser: true });
+Mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Throw an error if the connection fails
 Mongoose.connection.on('error', function(err) {

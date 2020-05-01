@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 var winston = require('winston');
 
 var logger = new (winston.Logger)({
@@ -20,3 +20,5 @@ var logger = new (winston.Logger)({
 });
 
 module.exports = logger;
+
+ */
