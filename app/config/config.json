@@ -6,10 +6,10 @@
 		"port": "27017",
 		"name": "multichat-io"
 	},
-	"sessionSecret": "<RandomString>",
+	"sessionSecret": "+H1$isAr@nd0m$+rinG%",
 	"facebook": {
-		"clientID": "<AppID>",
-		"clientSecret": "<AppSecret>",
+		"clientID": "308634253458380",
+		"clientSecret": "3c06299cae5be580ae96f7669ac9ced0",
 		"callbackURL": "/auth/facebook/callback",
 		"profileFields": ["id", "displayName", "photos"]
 	},
