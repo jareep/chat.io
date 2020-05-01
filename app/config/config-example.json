@@ -1,0 +1,21 @@
+{
+	"db": {
+		"username": "MONGO_DB_USERNAME",
+		"password": "MONGO_DB_PASSWORD",
+		"host": "MONGO_DB_HOSTNAME",
+		"port": "MONGO_DB_PORT",
+		"name": "MONGO_DB_DATABASE"
+	},
+	"sessionSecret": "",
+	"facebook": {
+		"clientID": "FACEBOOK_APP_ID",
+		"clientSecret": "FACEBOOK_CLIENT_SECRET",
+		"callbackURL": "/auth/facebook/callback",
+		"profileFields": ["id", "displayName", "photos"]
+	},
+	"redis": {
+		"host": "127.0.0.1",
+		"port": 6379,
+		"password": ""
+	}
+}
