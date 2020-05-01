@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/jareep/chat.io",
   "dependencies": {
-    "bcryptjs": "^2.0.0",
+    "bcryptjs": "^2.1.0",
     "body-parser": "^1.15.2",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
