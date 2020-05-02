@@ -2,7 +2,7 @@
 
 var config 		= require('../config');
 var Mongoose 	= require('mongoose');
-//var logger 		= require('../logger');
+var logger 		= require('../logger');
 
 // Connect to the database
 // construct the database URI and encode username and password.
