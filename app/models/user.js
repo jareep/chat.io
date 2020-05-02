@@ -29,15 +29,20 @@ var findOrCreate = function(data, callback){
 		} else {
 			var userData = {
 				username: data.displayName,
-				socialId: data.id,
-				picture: data.photos[0].value || null
+				socialId: data.id
+				/*,
+					picture: data.photos[0].value || null
+				*/
 			};
 
 			// To avoid expired Facebook CDN URLs
 			// Request user's profile picture using user id 
 			// @see http://stackoverflow.com/a/34593933/6649553
-			if(data.provider == "facebook" && userData.picture){
-				userData.picture = "http://graph.facebook.com/" + data.id + "/picture?type=large";
+			if(data.provider == "facebook"){
+				//userData.picture = "http://graph.facebook.com/" + data.id + "/picture?type=large";
+				userData.picture = "/img/fblogo.png"
+			} else {
+				userData.picture = DEFAULT_USER_PICTURE
 			}
 
 			create(userData, function(err, newUser){

@@ -26,6 +26,16 @@ var init = function () {
 				callbackURL: "/auth/twitter/callback",
 				profileFields: ['id', 'displayName', 'photos']
 			},*/
+			youtube:{
+				consumerKey: process.env.youtubeAppID,
+				consumerSecret: process.env.youtubeAppSecret,
+				callbackURL: "/auth/youtube/callback",
+				profileFields: ['id', 'displayName', 'photos'],
+				scope: ["https://www.googleapis.com/auth/youtube.readonly"],
+				authorizationParams: {
+					"access_type": "offline"
+				}
+			},
 			redis: {
 				host: redisURI.hostname,
 				port: redisURI.port,
@@ -37,16 +47,5 @@ var init = function () {
 		return require('./config.json');
 	}
 }
-
-/*
-This belongs in config.json should twitter auth need to be added for development
-
-	"twitter": {
-		"consumerKey": "<ConsumerKey>",
-		"consumerSecret": "<ConsumerSecret>",
-		"callbackURL": "/auth/twitter/callback",
-		"profileFields": ["id", "displayName", "photos"]
-	},
- */
 
 module.exports = init();

@@ -13,6 +13,23 @@
 		"callbackURL": "/auth/facebook/callback",
 		"profileFields": ["id", "displayName", "photos"]
 	},
+	"twitter": {
+		"consumerKey": "<ConsumerKey>",
+		"consumerSecret": "<ConsumerSecret>",
+		"callbackURL": "/auth/twitter/callback",
+		"profileFields": ["id", "displayName", "photos"]
+	},
+	"youtube": {
+		"clientID": "<AppID>",
+		"clientSecret": "<AppSecret>",
+		"callbackURL": "/auth/youtube/callback",
+		"profileFields": ["id", "displayName", "photos"],
+		"scope": ["https://www.googleapis.com/auth/youtube.readonly"],
+		"authorizationParams": {
+			"access_type": "offline"
+		}
+
+	},
 	"redis": {
 		"host": "127.0.0.1",
 		"port": 6379,
