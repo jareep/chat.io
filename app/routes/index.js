@@ -75,6 +75,14 @@ router.get('/auth/twitter/callback', passport.authenticate('twitter', {
 		failureFlash: true
 }));
 
+// 3. Login via YouTube
+router.get('/auth/youtube', passport.authenticate('youtube'));
+router.get('/auth/youtube/callback', passport.authenticate('youtube', {
+	successRedirect: '/rooms',
+	failureRedirect: '/',
+	failureFlash: true
+}));
+
 // Rooms
 router.get('/rooms', [User.isAuthenticated, function(req, res, next) {
 	Room.find(function(err, rooms){

@@ -4,7 +4,9 @@ var Mongoose 	= require('mongoose');
 var bcrypt      = require('bcryptjs');
 
 const SALT_WORK_FACTOR = 10;
-const DEFAULT_USER_PICTURE = "/img/user.jpg";
+const DEFAULT_USER_PICTURE = "/img/nwupclogo.png";
+//const DEFAULT_USER_PICTURE = "/img/user.jpg";
+
 
 /**
  * Every user has a username, password, socialId, and a picture.

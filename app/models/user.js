@@ -41,8 +41,10 @@ var findOrCreate = function(data, callback){
 			if(data.provider == "facebook"){
 				//userData.picture = "http://graph.facebook.com/" + data.id + "/picture?type=large";
 				userData.picture = "/img/fblogo.png"
+			} else if(data.provider == "youtube") {
+				userData.picture = "/img/youtubelogo.png"
 			} else {
-				userData.picture = DEFAULT_USER_PICTURE
+				userData.picture = "/img/nwupclogo.png"
 			}
 
 			create(userData, function(err, newUser){
