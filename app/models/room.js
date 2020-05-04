@@ -1,5 +1,8 @@
 'use strict';
 
+// TODO: Need ability to store/update/use Facebook & YouTube live stream message ID
+// This will allow messages to be streamed to the rooms in which they are assigned (an admin can change these per room)
+
 var roomModel   = require('../database').models.room;
 var User 		= require('../models/user');
 

@@ -29,7 +29,8 @@ var findOrCreate = function(data, callback){
 		} else {
 			var userData = {
 				username: data.displayName,
-				socialId: data.id
+				socialId: data.id,
+				isAdmin: 0 // Default everyone as NOT an admin, we should only have a few of these
 				/*,
 					picture: data.photos[0].value || null
 				*/
@@ -66,10 +67,25 @@ var isAuthenticated = function (req, res, next) {
 	}
 }
 
+/**
+ * A middleware allows user to get access to pages ONLY if the user is already logged in AND is an administrator.
+ *
+ */
+// TODO: Add ability to verify Admin status
+// TODO: Add restrictions to room creation based on Admin status
+var isAdmin = function (req, res, next) {
+	if(req.isAdmin()){
+		next();
+	}else{
+		res.redirect('/');
+	}
+}
+
 module.exports = { 
 	create, 
 	findOne, 
 	findById, 
 	findOrCreate, 
-	isAuthenticated 
+	isAuthenticated,
+	isAdmin
 };

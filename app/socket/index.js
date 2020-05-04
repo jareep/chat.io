@@ -15,6 +15,8 @@ var ioEvents = function(io) {
 	// Rooms namespace
 	io.of('/rooms').on('connection', function(socket) {
 
+		// TODO: When stream comments are enabled, the socket should begin long polling comments from the configured platforms
+
 		// Create a new room
 		socket.on('createRoom', function(title) {
 			Room.findOne({'title': new RegExp('^' + title + '$', 'i')}, function(err, room){
@@ -55,6 +57,24 @@ var ioEvents = function(io) {
 
 						// Join the room channel
 						socket.join(newRoom.id);
+
+						// TODO: Get current Facebook live video id
+							/*
+
+									Send a request to the POST /me/live_videos?status=LIVE_NOW endpoint. For example:
+									curl -i -X POST \
+									 "https://graph.facebook.com/v3.3/me/live_videos?status=LIVE_NOW&access_token={access-token}"
+
+									This will return a response that looks like this:
+
+									{
+									  "id": "10214937378883406",  //The LiveVido object ID
+									  "stream_url": "rtmp://rtmp-api.faceboo...",
+									  "secure_stream_url": "rtmps://rtmp-api.faceboo...", //The stream URL
+									  "stream_secondary_urls": [],
+									  "secure_stream_secondary_urls": []
+									}
+							 */
 
 						Room.getUsers(newRoom, socket, function(err, users, countUserInRoom){
 							if(err) throw err;
@@ -103,8 +123,10 @@ var ioEvents = function(io) {
 			// No need to emit 'addMessage' to the current socket
 			// As the new message will be added manually in 'main.js' file
 			// socket.emit('addMessage', message);
-			
 			socket.broadcast.to(roomId).emit('addMessage', message);
+
+			// TODO: Send message from website to other platforms
+
 		});
 
 	});

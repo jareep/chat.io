@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO: For consideration, should we store room messages and when someone joins the channel, post them to the user?
+
 // Chat application dependencies
 var express 	= require('express');
 var app  		= express();
